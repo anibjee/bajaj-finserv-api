@@ -129,21 +129,11 @@ app.post('/bfhl', (req, res) => {
     }
 });
 
-// GET route for /bfhl (optional, for testing)
-app.get('/bfhl', (req, res) => {
-    res.status(200).json({
-        operation_code: 1
-    });
-});
-
 // Health check route
 app.get('/', (req, res) => {
     res.json({ 
         message: "Bajaj Finserv API is running",
-        endpoints: {
-            post: "/bfhl",
-            get: "/bfhl"
-        }
+        endpoint: "POST /bfhl"
     });
 });
 
