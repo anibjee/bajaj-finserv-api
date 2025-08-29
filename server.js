@@ -42,16 +42,27 @@ function processArray(data) {
                 oddNumbers.push(str);
             }
         } else if (str.length === 1 && isAlphabet(str)) {
+            // Single alphabet character
             alphabets.push(str.toUpperCase());
             alphabetChars.push(str);
         } else if (str.length > 1) {
-            // Handle multi-character strings
-            for (let char of str) {
-                if (isAlphabet(char)) {
-                    alphabets.push(char.toUpperCase());
-                    alphabetChars.push(char);
-                } else if (isSpecialCharacter(char)) {
-                    specialCharacters.push(char);
+            // Check if entire string contains only alphabets
+            const isAllAlphabets = str.split('').every(char => isAlphabet(char));
+            
+            if (isAllAlphabets) {
+                // Treat as a single alphabet string
+                alphabets.push(str.toUpperCase());
+                // Add individual characters for concatenation
+                str.split('').forEach(char => alphabetChars.push(char));
+            } else {
+                // Mixed string - process character by character
+                for (let char of str) {
+                    if (isAlphabet(char)) {
+                        alphabets.push(char.toUpperCase());
+                        alphabetChars.push(char);
+                    } else if (isSpecialCharacter(char)) {
+                        specialCharacters.push(char);
+                    }
                 }
             }
         } else {
