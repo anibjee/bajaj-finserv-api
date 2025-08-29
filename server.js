@@ -107,9 +107,9 @@ app.post('/bfhl', (req, res) => {
         // Response object
         const response = {
             is_success: true,
-            user_id: "john_doe_17091999", // You should replace this with your actual details
-            email: "john@xyz.com", // Replace with your email
-            roll_number: "ABCD123", // Replace with your roll number
+            user_id: "aniruddha_bhattacharjee_17091999", // Replace the date with your actual birthdate
+            email: "anibjee@gmail.com",
+            roll_number: "ABCD123", // Replace with your actual roll number
             odd_numbers: processed.oddNumbers,
             even_numbers: processed.evenNumbers,
             alphabets: processed.alphabets,
